@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        body{
+            background: #e7e7e7;
+            background-color: rgb(169, 166, 162);
+        }
+        #tab1{
+            background-color: rgb(194, 178, 178);
+            font-weight: 700;
+            
+        }
+            #tab2{
+            background-color: rgb(194, 178, 178);
+            font-weight: 700;
+            
+        } 
+         #tab3{
+            background-color: rgb(194, 178, 178);
+            font-weight: 700;
+            
+        }
+        
+        .tab{
+            width: 500px;
+            overflow: hidden;
+            background-color: #583a3a;
+            /* border: 1px solid #000; */
+        }
+        .tab button{
+            background: #90caf8;
+            border: none;
+            outline: none;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .tab button:hover{
+            background: #74aedd;
+
+        }
+        .tab button.active{
+            background: #fff;
+
+        }
+        .tabcontent{
+            background: #fff;
+            background-color: rgb(189, 147, 94);
+            width: 500px;
+            padding: 12px;
+            font-family: arial;
+            line-height: 21px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="tab">
+        <button class="tablinks" data-tab="tab1">Tab 1</button>
+         <button class="tablinks" data-tab="tab2">Tab 2</button>
+          <button class="tablinks" data-tab="tab3">Tab 3</button>
+    </div>
+
+    <div id="tab1" class="tabcontent">
+        <h2>Tab 1</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ducimus officia expedita quaerat recusandae nisi minima magnam voluptates libero ratione mollitia eligendi quia nulla, non iste? Dolorem porro, iure magni velit tenetur molestias repellat sit vel natus iusto neque beatae.</p>
+
+    </div>
+
+      <div id="tab2" class="tabcontent">
+        <h2>Tab 2</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ducimus officia expedita quaerat recusandae nisi minima magnam voluptates libero ratione mollitia eligendi quia nulla, non iste? Dolorem porro, iure magni velit tenetur molestias repellat sit vel natus iusto neque beatae.</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora, aliquam, illo enim ea eligendi labore cumque rerum magni molestias natus ullam doloribus possimus ducimus tenetur, perferendis dignissimos quis dolores dolore perspiciatis impedit nam. Sequi dolorum molestiae ex vitae repellendus. Quia.</p>
+
+    </div>
+
+      <div id="tab3" class="tabcontent">
+        <h2>Tab 3</h2>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam ducimus officia expedita quaerat recusandae nisi minima magnam voluptates libero ratione mollitia eligendi quia nulla, non iste? Dolorem porro, iure magni velit tenetur molestias repellat sit vel natus iusto neque beatae.</p>
+
+    </div>
+
+    <script>
+        const tabButtons = document.querySelectorAll('.tablinks');
+        for (var i = 0; i < tabButtons.length; i++) {
+            tabButtons[i].addEventListener('click',function() {
+                var tabName = this.dataset.tab;
+                var tabContent = document.getElementById(tabName);
+
+            var allTabContent = document.querySelectorAll('.tabcontent');
+
+             var allTabButtons = document.querySelectorAll('.tablinks');
+             for(var j= 0 ; j <allTabContent.length; j++){
+                allTabContent[j].style.display = 'none';
+             }
+
+              for(var k= 0 ;  k < allTabButtons.length; k++){
+               allTabButtons[k].classList.remove ('active');
+             }
+
+                tabContent.style.display = "block";
+                this.classList.add('active');
+            });
+        }
+
+        document.querySelector('.tablinks').click();
+    </script>
+</body>
+</html>
